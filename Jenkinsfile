@@ -1,6 +1,9 @@
-def mvnHome
+
 pipeline {
     agent any
+    environment {
+        MAVEN_HOME = '/etc/maven'  // Set this to your actual Maven installation path
+        PATH = "${MAVEN_HOME}/bin:${/usr/share/apache-maven}" // Update PATH
     
     
     stages {
