@@ -1,9 +1,8 @@
 
 pipeline {
     agent any
-    environment {
-        MAVEN_HOME = '/etc/maven'  // Set this to your actual Maven installation path
-        PATH = "${MAVEN_HOME}/bin:${/usr/share/apache-maven}" // Update PATH
+    tools {
+        maven 'Maven3.8.5'  // Reference the Maven installation name from Global Tool Configuration
     }
     
     
@@ -15,9 +14,8 @@ pipeline {
         }
         stage('mvn build') {
             steps {
-                mvnHome=tool 'maven-3.2.5'
-                sh "${mvnHome}/bin/mvn --version"
-                sh "${mvnHome}/bin/mvn clean test surefire-report:report"
+                sh 'mvn --version'  // Verifies the Maven version being used
+                sh 'mvn clean install'  // Runs the Maven build
             }
         }
     
