@@ -2,7 +2,7 @@
 pipeline {
     agent any
     tools {
-        maven 'Maven3.2.5'  // Reference the Maven installation name from Global Tool Configuration
+        maven 'maven-3.2.5'  // Reference the Maven installation name from Global Tool Configuration
     }
     
     
