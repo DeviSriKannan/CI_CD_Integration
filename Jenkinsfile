@@ -9,7 +9,7 @@ pipeline {
                 git credentialsId: 'jenkinspassword', url: 'https://github.com/DeviSriKannan/CI_CD_Integration.git'
             }
         }
-        stage('git checkout') {
+        stage('mvn build') {
             steps {
                 mvnHome=tool 'maven-3.2.5'
                 sh "${mvnHome}/bin/mvn --version"
